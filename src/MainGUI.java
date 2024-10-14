@@ -1,7 +1,7 @@
 import processing.core.PApplet;
 import javax.swing.JOptionPane;
 
-public class main_GUI extends PApplet
+public class MainGUI extends PApplet
 {
     private GameOfLife game;
     private int windowsize = 600;
@@ -187,23 +187,24 @@ public class main_GUI extends PApplet
             } 
             // "Random" button hitbox
             else if (mouseX >= randomButtonX && mouseX <= randomButtonX + buttonWidth &&
-                     mouseY >= windowsize + 10 && mouseY <= windowsize + 10 + buttonHeight)
+                    mouseY >= windowsize + 10 && mouseY <= windowsize + 10 + buttonHeight)
             {
                 game.randomBoard(); 
             }
             // "Reset" button hitbox
             else if (mouseX >= resetButtonX && mouseX <= resetButtonX + buttonWidth &&
-                     mouseY >= windowsize + 10 && mouseY <= windowsize + 10 + buttonHeight)
+                    mouseY >= windowsize + 10 && mouseY <= windowsize + 10 + buttonHeight)
             {
                 promptForValues();
                 game = new GameOfLife(col_count, row_count);
-                isRunning = false;
+                isRunning = false; // Ensure the simulation is paused on reset
             }
             // "Clear" button hitbox
             else if (mouseX >= 10 && mouseX <= 10 + buttonWidth &&
-                     mouseY >= windowsize + 10 && mouseY <= windowsize + 10 + buttonHeight)
+                    mouseY >= windowsize + 10 && mouseY <= windowsize + 10 + buttonHeight)
             {
                 game.resetBoard();
+                isRunning = false; // Ensure the simulation is paused when Clear button is pressed
             }
         }
     }
