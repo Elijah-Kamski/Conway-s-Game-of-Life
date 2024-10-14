@@ -14,7 +14,7 @@ public class main_GUI extends PApplet
     private int offsetY;
     public static void main(String[] args)
     {
-        PApplet.main("GUI");
+        PApplet.main("MainGUI");
     }
 
     public void settings()
@@ -24,6 +24,7 @@ public class main_GUI extends PApplet
 
     public void setup()
     {
+        surface.setTitle("Conway's Game Game of Life");
         promptForValues();
         frameRate(60);
         calculateCellSizeAndOffsets();
